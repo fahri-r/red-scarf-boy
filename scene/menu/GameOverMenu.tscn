@@ -1,0 +1,108 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scene/menu/GameOverMenu.gd" type="Script" id=1]
+[ext_resource path="res://bg/ParallaxBackground.tscn" type="PackedScene" id=2]
+[ext_resource path="res://bg/ParallaxBackgroundMenu.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.6, 0.6, 0.6, 0.627451 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="GameOverMenu" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 2 )]
+scale = Vector2( 2, 2 )
+transform = Transform2D( 2, 0, 0, 2, 0, 0 )
+script = ExtResource( 3 )
+
+[node name="BlackOverlay" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.588235 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Popup" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -100.0
+margin_right = 150.0
+margin_bottom = 150.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Popup"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -100.0
+margin_top = -13.0
+margin_bottom = 1.0
+rect_scale = Vector2( 2, 2 )
+text = "Game Over!"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="Popup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Popup/CenterContainer"]
+margin_left = 65.0
+margin_top = 35.0
+margin_right = 185.0
+margin_bottom = 215.0
+custom_constants/separation = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewGame" type="Button" parent="Popup/CenterContainer/VBoxContainer"]
+margin_right = 120.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 120, 30 )
+text = "New Game"
+
+[node name="SelectLevel" type="Button" parent="Popup/CenterContainer/VBoxContainer"]
+margin_top = 50.0
+margin_right = 120.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 120, 30 )
+text = "Select Level"
+
+[node name="MainMenu" type="Button" parent="Popup/CenterContainer/VBoxContainer"]
+margin_top = 100.0
+margin_right = 120.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 120, 30 )
+text = "MainMenu"
+
+[node name="QuitGame" type="Button" parent="Popup/CenterContainer/VBoxContainer"]
+margin_top = 150.0
+margin_right = 120.0
+margin_bottom = 180.0
+rect_min_size = Vector2( 120, 30 )
+text = "Quit Game"
+[connection signal="pressed" from="Popup/CenterContainer/VBoxContainer/NewGame" to="." method="_on_NewGame_pressed"]
+[connection signal="pressed" from="Popup/CenterContainer/VBoxContainer/MainMenu" to="." method="_on_MainMenu_pressed"]
+[connection signal="pressed" from="Popup/CenterContainer/VBoxContainer/QuitGame" to="." method="_on_QuitGame_pressed"]
