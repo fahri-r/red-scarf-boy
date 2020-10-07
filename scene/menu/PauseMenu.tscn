@@ -104,5 +104,6 @@ margin_bottom = 180.0
 rect_min_size = Vector2( 120, 30 )
 text = "Quit Game"
 [connection signal="pressed" from="Popup/CenterContainer/VBoxContainer/ResumeGame" to="." method="_on_ResumeGame_pressed"]
+[connection signal="pressed" from="Popup/CenterContainer/VBoxContainer/SelectLevel" to="." method="_on_SelectLevel_pressed"]
 [connection signal="pressed" from="Popup/CenterContainer/VBoxContainer/MainMenu" to="." method="_on_MainMenu_pressed"]
 [connection signal="pressed" from="Popup/CenterContainer/VBoxContainer/QuitGame" to="." method="_on_QuitGame_pressed"]

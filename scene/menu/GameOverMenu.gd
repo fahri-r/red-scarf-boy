@@ -18,3 +18,8 @@ func _on_QuitGame_pressed():
 func _on_MainMenu_pressed():
 	LevelChanger.change_scene("res://scene/menu/MainMenu.tscn")
 	get_tree().paused = false
+
+
+func _on_SelectLevel_pressed():
+	LevelChanger.change_scene("res://scene/menu/SelectLevelMenu.tscn")
+	get_tree().paused = false

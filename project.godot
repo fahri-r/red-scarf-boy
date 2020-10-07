@@ -44,7 +44,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Godot First Game"
+config/name="Red Scarf Boy"
 run/main_scene="res://scene/menu/MainMenu.tscn"
 config/icon="res://icon.png"
 
@@ -52,6 +52,7 @@ config/icon="res://icon.png"
 
 ResourceLoader="*res://ResourceLoader.gd"
 LevelChanger="*res://scene/LevelChanger.tscn"
+SaverandLoader="*res://SaverandLoader.gd"
 
 [display]
 

@@ -1,14 +1,12 @@
 extends CanvasLayer
 
-var MainInstances = ResourceLoader.MainInstances
 var PlayerStats = ResourceLoader.PlayerStats
+
+var selectedLevel = null
 
 signal scene_changed()
 
 onready var animation = $AnimationPlayer
-
-func _ready():
-	MainInstances.LevelChanger = self
 
 func change_scene(path):
 	yield(get_tree().create_timer(0.4),"timeout")
@@ -29,3 +27,18 @@ func change_level(finish_area, parent):
 	parent.player.position = NewLevel.get_node("Position2D").position
 	animation.play_backwards("fade")
 	emit_signal("scene_changed")
+
+func load_scene(path):
+	yield(get_tree().create_timer(0.4),"timeout")
+	animation.play("fade")
+	yield(animation, "animation_finished")
+	get_tree().change_scene(path)
+	
+func load_level(path, parent):
+	PlayerStats.refill_stats()
+	parent.currentLevel.queue_free()
+	var NewLevel = load(path).instance()
+	parent.add_child_below_node(parent.level,NewLevel)
+	parent.player.position = NewLevel.get_node("Position2D").position
+	animation.play_backwards("fade")
+	selectedLevel = null

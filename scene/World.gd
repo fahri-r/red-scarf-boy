@@ -11,6 +11,9 @@ func _ready():
 	MainInstances.Player.connect("level_complete", self, "_on_Player_level_complete")
 	MainInstances.Player.connect("game_over", self, "_on_Game_Over")
 	
+	if LevelChanger.selectedLevel != null:
+		LevelChanger.load_level(LevelChanger.selectedLevel, self)
+	
 	player.position = currentLevel.get_node("Position2D").position
 
 func _process(_delta):

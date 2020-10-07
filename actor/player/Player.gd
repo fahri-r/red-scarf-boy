@@ -34,7 +34,7 @@ var died = false
 
 func _ready():
 	MainInstances.Player = self
-	MainInstances.LevelChanger.connect("scene_changed", self, "_on_Level_change")
+	LevelChanger.connect("scene_changed", self, "_on_Level_change")
 	PlayerStats.connect("player_died", self, "_on_PlayerStats_player_died")
 
 func _exit_tree():

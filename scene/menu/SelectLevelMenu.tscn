@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://scene/menu/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://scene/menu/SelectLevelMenu.gd" type="Script" id=1]
 [ext_resource path="res://bg/ParallaxBackgroundMenu.gd" type="Script" id=2]
 [ext_resource path="res://bg/ParallaxBackground.tscn" type="PackedScene" id=3]
 
@@ -14,7 +14,7 @@ outline_color = Color( 0, 0, 0, 1 )
 extra_spacing_char = 2
 font_data = SubResource( 1 )
 
-[node name="StartMenu" type="Control"]
+[node name="SelectLevelMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
@@ -42,7 +42,7 @@ __meta__ = {
 margin_right = 800.0
 margin_bottom = 49.0
 custom_fonts/font = SubResource( 2 )
-text = "RED SCARF BOY"
+text = "Select Level"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -56,7 +56,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GridContainer" type="GridContainer" parent="VBoxContainer/CenterContainer"]
+[node name="ButtonContainer" type="GridContainer" parent="VBoxContainer/CenterContainer"]
 margin_left = 300.0
 margin_right = 500.0
 margin_bottom = 217.0
@@ -66,32 +66,37 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NewGame" type="Button" parent="VBoxContainer/CenterContainer/GridContainer"]
+[node name="1" type="Button" parent="VBoxContainer/CenterContainer/ButtonContainer"]
 margin_right = 200.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 200, 40 )
-text = "New Game"
+disabled = true
+text = "Level 1"
 
-[node name="SelectLevel" type="Button" parent="VBoxContainer/CenterContainer/GridContainer"]
+[node name="2" type="Button" parent="VBoxContainer/CenterContainer/ButtonContainer"]
 margin_top = 59.0
 margin_right = 200.0
 margin_bottom = 99.0
 rect_min_size = Vector2( 96, 40 )
-text = "Select Level"
+disabled = true
+text = "Level 2"
 
-[node name="Credits" type="Button" parent="VBoxContainer/CenterContainer/GridContainer"]
+[node name="3" type="Button" parent="VBoxContainer/CenterContainer/ButtonContainer"]
 margin_top = 118.0
 margin_right = 200.0
 margin_bottom = 158.0
 rect_min_size = Vector2( 96, 40 )
-text = "Credits"
+disabled = true
+text = "Level 3"
 
-[node name="QuitGame" type="Button" parent="VBoxContainer/CenterContainer/GridContainer"]
+[node name="4" type="Button" parent="VBoxContainer/CenterContainer/ButtonContainer"]
 margin_top = 177.0
 margin_right = 200.0
 margin_bottom = 217.0
 rect_min_size = Vector2( 96, 40 )
-text = "Quit Game"
-[connection signal="pressed" from="VBoxContainer/CenterContainer/GridContainer/NewGame" to="." method="_on_StartButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/CenterContainer/GridContainer/SelectLevel" to="." method="_on_SelectLevel_pressed"]
-[connection signal="pressed" from="VBoxContainer/CenterContainer/GridContainer/QuitGame" to="." method="_on_QuitButton_pressed"]
+disabled = true
+text = "Level 4"
+[connection signal="pressed" from="VBoxContainer/CenterContainer/ButtonContainer/1" to="." method="_on_1_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer/ButtonContainer/2" to="." method="_on_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer/ButtonContainer/3" to="." method="_on_3_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer/ButtonContainer/4" to="." method="_on_4_pressed"]
