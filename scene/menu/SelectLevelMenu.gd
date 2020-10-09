@@ -12,6 +12,9 @@ func _ready():
 			if button.name == str(completed_level):
 				break
 
+func _on_MainMenu_pressed():
+	LevelChanger.change_scene("res://scene/menu/MainMenu.tscn")
+
 func _on_1_pressed():
 	LevelChanger.selectedLevel = "res://scene/level/Level 1.tscn"
 	LevelChanger.load_scene("res://scene/World.tscn")

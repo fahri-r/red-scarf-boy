@@ -94,4 +94,5 @@ rect_min_size = Vector2( 96, 40 )
 text = "Quit Game"
 [connection signal="pressed" from="VBoxContainer/CenterContainer/GridContainer/NewGame" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/CenterContainer/GridContainer/SelectLevel" to="." method="_on_SelectLevel_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer/GridContainer/Credits" to="." method="_on_Credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/CenterContainer/GridContainer/QuitGame" to="." method="_on_QuitButton_pressed"]
