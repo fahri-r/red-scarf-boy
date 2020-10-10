@@ -115,6 +115,7 @@ func can_stand() -> bool:
 	return standing_area.get_overlapping_bodies().empty()
 
 func _on_Attack():
+	Sound.play("attack")
 	attack_detector.set_collision_layer_bit(5,true)
 	yield(get_tree().create_timer(0.5), "timeout")
 	attacking = false
@@ -123,6 +124,8 @@ func _on_Attack():
 func _on_Demon_Attack():
 	if invulnerability_timer.is_stopped():
 		invulnerability_timer.start()
+		Sound.play("hit_player")
+		Sound.play("hit_enemy", 1, 10)
 		PlayerStats.health -= DEMON_DAMAGE
 		animation_effect.play("hit")
 		animation_effect.queue("invulnerability")
@@ -139,6 +142,8 @@ func _on_InvulnerabilityTimer_timeout():
 func _on_HitBox_body_entered(body):
 	if invulnerability_timer.is_stopped():
 		invulnerability_timer.start()
+		Sound.play("hit_player")
+		Sound.play("hit_enemy", 1, 10)
 		PlayerStats.health -= body.DAMAGE
 		animation_effect.play("hit")
 		animation_effect.queue("invulnerability")
@@ -149,3 +154,9 @@ func _on_Level_change():
 
 func _on_HitBox_area_entered(_area):
 	sword_hide = true
+
+func sword_sound():
+	Sound.play("sword", 1, -8)
+
+func step_sound():
+	Sound.play("footstep", rand_range(0.6, 1.2), -12)

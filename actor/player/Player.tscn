@@ -82,49 +82,9 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ), ExtResource( 15 ) ],
-"loop": true,
-"name": "fall",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 22 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 23 ) ],
-"loop": true,
-"name": "jump",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 7 ), ExtResource( 32 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 65 ), ExtResource( 67 ) ],
-"loop": true,
-"name": "run",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 45 ), ExtResource( 27 ), ExtResource( 38 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 62 ), ExtResource( 63 ) ],
-"loop": true,
-"name": "die",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 33 ), ExtResource( 3 ), ExtResource( 16 ), ExtResource( 47 ), ExtResource( 44 ), ExtResource( 48 ) ],
-"loop": true,
-"name": "attack2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 42 ), ExtResource( 8 ), ExtResource( 36 ), ExtResource( 28 ), ExtResource( 19 ), ExtResource( 49 ) ],
-"loop": true,
-"name": "attack3",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 64 ), ExtResource( 66 ), ExtResource( 21 ), ExtResource( 58 ) ],
 "loop": true,
 "name": "sword hide",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 12 ) ],
-"loop": true,
-"name": "hurt",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 18 ), ExtResource( 29 ), ExtResource( 39 ) ],
-"loop": true,
-"name": "wake",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 31 ), ExtResource( 59 ), ExtResource( 17 ), ExtResource( 35 ) ],
@@ -132,9 +92,14 @@ animations = [ {
 "name": "sword draw",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 34 ), ExtResource( 30 ), ExtResource( 24 ), ExtResource( 1 ), ExtResource( 40 ) ],
+"frames": [ ExtResource( 42 ), ExtResource( 8 ), ExtResource( 36 ), ExtResource( 28 ), ExtResource( 19 ), ExtResource( 49 ) ],
 "loop": true,
-"name": "attack1",
+"name": "attack3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 45 ), ExtResource( 27 ), ExtResource( 38 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 62 ), ExtResource( 63 ) ],
+"loop": true,
+"name": "die",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ), ExtResource( 53 ), ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ) ],
@@ -145,6 +110,41 @@ animations = [ {
 "frames": [ ExtResource( 43 ), ExtResource( 46 ), ExtResource( 52 ), ExtResource( 25 ) ],
 "loop": true,
 "name": "crouch",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 32 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 65 ), ExtResource( 67 ) ],
+"loop": true,
+"name": "run",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 23 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "fall",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 34 ), ExtResource( 30 ), ExtResource( 24 ), ExtResource( 1 ), ExtResource( 40 ) ],
+"loop": true,
+"name": "attack1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 33 ), ExtResource( 3 ), ExtResource( 16 ), ExtResource( 47 ), ExtResource( 44 ), ExtResource( 48 ) ],
+"loop": true,
+"name": "attack2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 29 ), ExtResource( 39 ) ],
+"loop": true,
+"name": "wake",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "hurt",
 "speed": 5.0
 } ]
 
@@ -248,7 +248,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id=5]
 resource_name = "crawl"
 loop = true
-step = 0.2
+step = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:animation")
 tracks/0/interp = 1
@@ -272,6 +272,26 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "step_sound"
+}, {
+"args": [  ],
+"method": "step_sound"
+}, {
+"args": [  ],
+"method": "step_sound"
+} ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -451,8 +471,9 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=12]
 resource_name = "run"
+length = 0.75
 loop = true
-step = 0.2
+step = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:animation")
 tracks/0/interp = 1
@@ -472,10 +493,30 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "step_sound"
+}, {
+"args": [  ],
+"method": "step_sound"
+}, {
+"args": [  ],
+"method": "step_sound"
+} ]
 }
 
 [sub_resource type="Animation" id=13]
@@ -535,6 +576,20 @@ tracks/1/keys = {
 "update": 1,
 "values": [ 0, 1, 2, 3 ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "sword_sound"
+} ]
+}
 
 [sub_resource type="Animation" id=15]
 resource_name = "sword hide"
@@ -563,6 +618,20 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "sword_sound"
+} ]
 }
 
 [sub_resource type="Animation" id=16]
@@ -661,8 +730,7 @@ script = ExtResource( 68 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, 1 )
 frames = SubResource( 1 )
-animation = "attack2"
-frame = 3
+animation = "run"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite"]
 anims/attack1 = SubResource( 2 )
@@ -687,6 +755,7 @@ anims/invulnerability = SubResource( 18 )
 anims/rest = SubResource( 19 )
 
 [node name="HitBox" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 18
 
@@ -705,6 +774,7 @@ shape = SubResource( 22 )
 disabled = true
 
 [node name="StandingArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 4
 
@@ -724,15 +794,18 @@ position = Vector2( -2.99999, 11 )
 polygon = PoolVector2Array( 10, 11, 2.00001, 11, -0.99999, 10, -7, 4.00001, -9, -0.999991, -9.00001, -11, 9.99999, -11 )
 
 [node name="StandCollision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, 5 )
 shape = SubResource( 20 )
 
 [node name="SlideCollision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, 10 )
 shape = SubResource( 21 )
 disabled = true
 
 [node name="CrouchCollision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, 7 )
 shape = SubResource( 22 )
 disabled = true

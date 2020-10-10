@@ -67,14 +67,14 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 13 ), ExtResource( 24 ), ExtResource( 23 ) ],
-"loop": true,
-"name": "died",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 1 ), ExtResource( 27 ), ExtResource( 26 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ) ],
 "loop": true,
 "name": "walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 6 ), ExtResource( 25 ), ExtResource( 19 ), ExtResource( 5 ), ExtResource( 34 ) ],
+"loop": true,
+"name": "attack2",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 4 ), ExtResource( 11 ), ExtResource( 3 ), ExtResource( 21 ), ExtResource( 16 ), ExtResource( 20 ) ],
@@ -82,9 +82,9 @@ animations = [ {
 "name": "attack",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 18 ), ExtResource( 6 ), ExtResource( 25 ), ExtResource( 19 ), ExtResource( 5 ), ExtResource( 34 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 13 ), ExtResource( 24 ), ExtResource( 23 ) ],
 "loop": true,
-"name": "attack2",
+"name": "died",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 33 ), ExtResource( 32 ), ExtResource( 31 ) ],
@@ -193,7 +193,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=7]
 loop = true
-step = 0.2
+step = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:animation")
 tracks/0/interp = 1
@@ -218,6 +218,26 @@ tracks/1/keys = {
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5 ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "step_sound"
+}, {
+"args": [  ],
+"method": "step_sound"
+}, {
+"args": [  ],
+"method": "step_sound"
+} ]
+}
 
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 9, 15 )
@@ -234,6 +254,7 @@ collision_mask = 2147483652
 script = ExtResource( 22 )
 
 [node name="DemonState" type="Node2D" parent="."]
+visible = false
 script = ExtResource( 15 )
 
 [node name="EnemyStats" type="Node" parent="."]
@@ -264,7 +285,8 @@ __meta__ = {
 position = Vector2( 2, -12 )
 scale = Vector2( 0.85, 0.85 )
 frames = SubResource( 3 )
-animation = "idle"
+animation = "walk"
+frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite"]
 anims/attack = SubResource( 4 )
@@ -273,9 +295,11 @@ anims/idle = SubResource( 6 )
 anims/walk = SubResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource( 8 )
 
 [node name="Detector" type="Node2D" parent="."]
+visible = false
 
 [node name="FrontDetector" type="Area2D" parent="Detector"]
 position = Vector2( 10.3333, 0 )
@@ -304,6 +328,7 @@ enabled = true
 cast_to = Vector2( 0, 8 )
 
 [node name="HurtBox" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 32
 

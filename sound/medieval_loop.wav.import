@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/medieval_loop.wav-2d1f4ed2e5382a671a7ab5b625e1ee40.sample"
+
+[deps]
+
+source_file="res://sound/medieval_loop.wav"
+dest_files=[ "res://.import/medieval_loop.wav-2d1f4ed2e5382a671a7ab5b625e1ee40.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

@@ -53,6 +53,7 @@ config/icon="res://icon.png"
 ResourceLoader="*res://ResourceLoader.gd"
 LevelChanger="*res://scene/LevelChanger.tscn"
 SaverandLoader="*res://SaverandLoader.gd"
+Sound="*res://sound/Sound.tscn"
 
 [display]
 

@@ -7,16 +7,20 @@ func _input(event):
 		visible = new_pause_state
 
 func _on_ResumeGame_pressed():
+	Sound.play("click")
 	get_tree().paused = false
 	visible = false
 
 func _on_QuitGame_pressed():
+	Sound.play("click")
 	get_tree().quit()
 
 func _on_MainMenu_pressed():
+	Sound.play("click")
 	LevelChanger.change_scene("res://scene/menu/MainMenu.tscn")
 	get_tree().paused = false
 
 func _on_SelectLevel_pressed():
+	Sound.play("click")
 	LevelChanger.change_scene("res://scene/menu/SelectLevelMenu.tscn")
 	get_tree().paused = false

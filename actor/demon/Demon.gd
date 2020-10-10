@@ -31,6 +31,7 @@ func can_walk() -> bool :
 	return down_detector.is_colliding()
 
 func _on_Attack():
+	Sound.play("attack")
 	MainInstances.Player._on_Demon_Attack()
 
 func _on_FrontDetector_body_entered(_body):
@@ -43,6 +44,7 @@ func _on_FrontDetector_body_exited(_body):
 	velocity.x = 0
 
 func _on_Player_Attack(_area):
+	Sound.play("hit_enemy", 1, 10)
 	stats.health -= MainInstances.Player.DAMAGE
 	health_bar.show()
 	hide_timer.start()
@@ -57,3 +59,6 @@ func _on_EnemyStats_enemy_died():
 	attack_detector.set_collision_mask_bit(0, false)
 	yield(get_tree().create_timer(2),"timeout")
 	queue_free()
+
+func step_sound():
+	Sound.play("footstep", rand_range(0.6, 1.2), -17)

@@ -9,16 +9,20 @@ func _ready():
 		$ParallaxBackground/Sky.visible = true
 
 func _on_NewGame_pressed():
+	Sound.play("click")
 	LevelChanger.change_scene("res://scene/World.tscn")
 	get_tree().paused = false
 
 func _on_QuitGame_pressed():
+	Sound.play("click")
 	get_tree().quit()
 
 func _on_MainMenu_pressed():
+	Sound.play("click")
 	LevelChanger.change_scene("res://scene/menu/MainMenu.tscn")
 	get_tree().paused = false
 
 func _on_SelectLevel_pressed():
+	Sound.play("click")
 	LevelChanger.change_scene("res://scene/menu/SelectLevelMenu.tscn")
 	get_tree().paused = false

@@ -168,6 +168,7 @@ func _enter_state(new_state, old_state):
 			parent.animation.play("run")
 		states.jump:
 			parent.animation.play("jump")
+			Sound.play("jump")
 		states.fall:
 			parent.animation.play("fall")
 		states.crouch:
