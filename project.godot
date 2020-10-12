@@ -112,8 +112,9 @@ pause={
 2d_physics/layer_2="spike"
 2d_physics/layer_3="ground"
 2d_physics/layer_4="enemy"
-2d_physics/layer_5="complete_sign"
+2d_physics/layer_5="level_complete"
 2d_physics/layer_6="attack_detector"
+2d_physics/layer_7="game_complete"
 
 [physics]
 

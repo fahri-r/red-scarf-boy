@@ -5,6 +5,8 @@ var MainInstances = ResourceLoader.MainInstances
 var PlayerStats = ResourceLoader.PlayerStats
 
 signal level_complete
+signal level_not_complete
+signal game_complete
 signal player_died
 signal game_over
 
@@ -25,6 +27,7 @@ onready var attack_detector = $AttackDetector
 onready var animation = $AnimatedSprite/AnimationPlayer
 onready var invulnerability_timer = $InvulnerabilityTimer
 onready var animation_effect = $AnimatedSprite/AnimationEffect
+onready var platform_detector = $PlatformDetector
 
 var speed_scale
 var attacking = false
@@ -50,8 +53,10 @@ func _apply_movement():
 	var is_jump_interrupted = Input.is_action_just_released("jump") and velocity.y < 0.0
 	velocity = calculate_move_velocity(velocity, direction, speed, is_jump_interrupted)
 	
+	var is_on_platform = !platform_detector.is_colliding()
+	
 	var snap_vector = Vector2.DOWN * FLOOR_DETECT_DISTANCE if direction.y == 0.0 else Vector2.ZERO
-	velocity = move_and_slide_with_snap(velocity, snap_vector, FLOOR_NORMAL, true, 4, 0.9, false)
+	velocity = move_and_slide_with_snap(velocity, snap_vector, FLOOR_NORMAL, is_on_platform, 4, 0.9, false)
 	
 	if direction.x != 0:
 		sprite.scale.x = 1 if direction.x > 0 else -1
@@ -127,7 +132,6 @@ func _on_Demon_Attack():
 		Sound.play("hit_player")
 		Sound.play("hit_enemy", 1, 10)
 		PlayerStats.health -= DEMON_DAMAGE
-		animation_effect.play("hit")
 		animation_effect.queue("invulnerability")
 
 func _on_PlayerStats_player_died():
@@ -145,15 +149,11 @@ func _on_HitBox_body_entered(body):
 		Sound.play("hit_player")
 		Sound.play("hit_enemy", 1, 10)
 		PlayerStats.health -= body.DAMAGE
-		animation_effect.play("hit")
-		animation_effect.queue("invulnerability")
+		animation_effect.play("invulnerability")
 
 func _on_Level_change():
 	sword_draw = true
 	animation_effect.play("rest")
-
-func _on_HitBox_area_entered(_area):
-	sword_hide = true
 
 func sword_sound():
 	Sound.play("sword", 1, -8)

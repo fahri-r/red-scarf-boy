@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scene/tileset/BlockTile.tres" type="TileSet" id=1]
-[ext_resource path="res://scene/level/Level Complete.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scene/level/Game Complete.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scene/level/Level.gd" type="Script" id=3]
 [ext_resource path="res://scene/tileset/PropsTile.tres" type="TileSet" id=4]
 [ext_resource path="res://scene/Spike.tscn" type="PackedScene" id=5]
@@ -32,12 +32,6 @@ collision_layer = 4
 collision_mask = 9
 format = 1
 tile_data = PoolIntArray( 0, 84, 0, 65536, 84, 0, 131072, 84, 0, 196608, 84, 0, 262144, 84, 0, 327680, 84, 0, 393216, 84, 0, 458752, 84, 0, 458764, 88, 0, 458765, 87, 0, 458766, 87, 0, 458767, 118, 0, 458768, 87, 0, 458769, 88, 0, 524288, 84, 0, 524300, 85, 0, 524305, 103, 0, 524306, 104, 0, 524307, 104, 0, 524308, 104, 0, 524309, 104, 0, 524310, 104, 0, 524311, 105, 0, 589824, 84, 0, 589836, 85, 0, 589847, 103, 0, 589848, 104, 0, 589849, 104, 0, 589850, 104, 0, 589851, 104, 0, 589852, 104, 0, 589853, 104, 0, 589854, 105, 0, 589855, 117, 0, 589856, 103, 0, 589857, 104, 0, 589858, 104, 0, 589859, 104, 0, 589860, 104, 0, 589861, 104, 0, 589862, 104, 0, 589863, 104, 0, 589864, 104, 0, 589865, 104, 0, 589866, 104, 0, 589867, 104, 0, 589868, 104, 0, 589869, 104, 0, 589870, 104, 0, 589871, 104, 0, 589872, 104, 0, 589873, 104, 0, 655360, 84, 0, 655372, 85, 0, 720896, 84, 0, 720908, 85, 0, 720913, 99, 0, 720914, 99, 0, 720915, 99, 0, 720916, 99, 0, 786432, 84, 0, 786444, 85, 0, 786447, 113, 0, 786452, 85, 0, 851968, 84, 0, 851980, 85, 0, 851985, 84, 0, 851988, 85, 0, 917504, 84, 0, 917516, 85, 0, 917521, 84, 0, 917524, 85, 0, 983040, 84, 0, 983052, 114, 0, 983057, 84, 0, 983060, 85, 0, 1048576, 86, 0, 1048577, 104, 0, 1048578, 105, 0, 1048579, 116, 0, 1048580, 103, 0, 1048581, 104, 0, 1048582, 104, 0, 1048583, 104, 0, 1048584, 104, 0, 1048585, 104, 0, 1048586, 104, 0, 1048587, 104, 0, 1048588, 105, 0, 1048593, 103, 0, 1048596, 103, 0, 1048597, 104, 0, 1048598, 104, 0, 1048599, 104, 0, 1048600, 104, 0, 1048601, 104, 0, 1048602, 104, 0, 1048603, 104, 0, 1048604, 99, 0, 1048608, 99, 0, 1048609, 104, 0, 1048610, 104, 0, 1048611, 104, 0, 1048612, 104, 0, 1048613, 104, 0, 1048614, 104, 0, 1048615, 104, 0, 1048616, 104, 0, 1048617, 104, 0, 1048618, 104, 0, 1048619, 104, 0, 1048620, 104, 0, 1048621, 104, 0, 1048622, 104, 0, 1048623, 104, 0, 1048624, 104, 0, 1048625, 104, 0, 1114129, 84, 0, 1114140, 85, 0, 1114144, 84, 0, 1179663, 113, 0, 1179676, 88, 0, 1179677, 99, 0, 1179678, 99, 0, 1179679, 99, 0, 1179680, 86, 0, 1245201, 84, 0, 1310737, 84, 0, 1376256, 99, 0, 1376257, 99, 0, 1376258, 99, 0, 1376259, 99, 0, 1376260, 99, 0, 1376261, 99, 0, 1376262, 99, 0, 1376263, 99, 0, 1376264, 99, 0, 1376265, 99, 0, 1376266, 99, 0, 1376267, 99, 0, 1376268, 99, 0, 1376269, 99, 0, 1376270, 99, 0, 1376271, 99, 0, 1376272, 99, 0, 1376273, 86, 0 )
-
-[node name="Demon" parent="." instance=ExtResource( 6 )]
-position = Vector2( 112, 321 )
-
-[node name="Demon2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 556, 241 )
 
 [node name="Spike Ceil" type="Node2D" parent="."]
 
@@ -75,10 +69,6 @@ position = Vector2( 496, 277 )
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( 49.6184, 309.307 )
 
-[node name="Level Complete" parent="." instance=ExtResource( 2 )]
-position = Vector2( 774, 246 )
-level_scene = "res://scene/menu/GameOverMenu.tscn"
-
 [node name="Node2D" type="StaticBody2D" parent="."]
 position = Vector2( -1, 304 )
 collision_layer = 4
@@ -86,3 +76,14 @@ collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D"]
 shape = SubResource( 1 )
+
+[node name="Enemy" type="Node2D" parent="."]
+
+[node name="Demon" parent="Enemy" instance=ExtResource( 6 )]
+position = Vector2( 112, 321 )
+
+[node name="Demon2" parent="Enemy" instance=ExtResource( 6 )]
+position = Vector2( 556, 241 )
+
+[node name="Level Complete" parent="." instance=ExtResource( 2 )]
+position = Vector2( 720, 160 )
