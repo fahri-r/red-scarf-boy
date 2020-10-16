@@ -35,3 +35,8 @@ func _on_4_pressed():
 	Sound.play("click")
 	LevelChanger.selectedLevel = "res://scene/level/Level 4.tscn"
 	LevelChanger.load_scene("res://scene/World.tscn")
+
+func _on_5_pressed():
+	Sound.play("click")
+	LevelChanger.selectedLevel = "res://scene/level/Level 5.tscn"
+	LevelChanger.load_scene("res://scene/World.tscn")

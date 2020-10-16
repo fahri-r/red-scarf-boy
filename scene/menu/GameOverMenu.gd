@@ -1,5 +1,7 @@
 extends Control
 
+var PlayerStats = ResourceLoader.PlayerStats
+
 func _ready():
 	if !get_parent().name == "UI":
 		$BlackOverlay.visible = false
@@ -11,6 +13,7 @@ func _ready():
 func _on_NewGame_pressed():
 	Sound.play("click")
 	LevelChanger.change_scene("res://scene/World.tscn")
+	PlayerStats.refill_stats()
 	get_tree().paused = false
 
 func _on_QuitGame_pressed():

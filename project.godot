@@ -115,6 +115,7 @@ pause={
 2d_physics/layer_5="level_complete"
 2d_physics/layer_6="attack_detector"
 2d_physics/layer_7="game_complete"
+2d_physics/layer_8="moving_platform"
 
 [physics]
 

@@ -125,4 +125,5 @@ text = "Main Menu"
 [connection signal="pressed" from="VBoxContainer/CenterContainer/ButtonContainer/2" to="." method="_on_2_pressed"]
 [connection signal="pressed" from="VBoxContainer/CenterContainer/ButtonContainer/3" to="." method="_on_3_pressed"]
 [connection signal="pressed" from="VBoxContainer/CenterContainer/ButtonContainer/4" to="." method="_on_4_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer/ButtonContainer/5" to="." method="_on_5_pressed"]
 [connection signal="pressed" from="HBoxContainer/MainMenu" to="." method="_on_MainMenu_pressed"]

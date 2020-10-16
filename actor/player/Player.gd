@@ -122,9 +122,10 @@ func can_stand() -> bool:
 func _on_Attack():
 	Sound.play("attack")
 	attack_detector.set_collision_layer_bit(5,true)
-	yield(get_tree().create_timer(0.5), "timeout")
-	attacking = false
+	yield(get_tree().create_timer(0.1), "timeout")
 	attack_detector.set_collision_layer_bit(5,false)
+	yield(get_tree().create_timer(0.4), "timeout")
+	attacking = false
 
 func _on_Demon_Attack():
 	if invulnerability_timer.is_stopped():

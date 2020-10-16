@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-const DAMAGE = 7
+const DAMAGE = 10
 
 export(String, "UP", "DOWN") var spike
 

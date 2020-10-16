@@ -51,14 +51,16 @@ __meta__ = {
 [node name="RichTextLabel" type="Label" parent="VBoxContainer"]
 margin_top = 78.0
 margin_right = 800.0
-margin_bottom = 224.0
+margin_bottom = 268.0
 custom_constants/line_spacing = 8
 text = "fahri-r
 rvros
 ansimuz
 MamaNeZakon
-Adwitr
 sanctumpixel
+remaxim
+Jonas Tyroller
+Adwitr
 Daniel Linssen"
 align = 1
 valign = 1
@@ -69,9 +71,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -400.0
-margin_top = -130.0
+margin_top = -102.0
 margin_right = 400.0
-margin_bottom = -90.0
+margin_bottom = -62.0
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false

@@ -35,6 +35,7 @@ __meta__ = {
 [node name="Platform" type="KinematicBody2D" parent="."]
 position = Vector2( 0, 16 )
 collision_layer = 128
+collision_mask = 0
 
 [node name="Sprite" type="Sprite" parent="Platform"]
 texture = ExtResource( 1 )
@@ -43,6 +44,7 @@ region_rect = Rect2( 0, 128, 48, 16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
 shape = SubResource( 1 )
+one_way_collision = true
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource( 2 )
@@ -57,4 +59,5 @@ remote_path = NodePath("../../../Platform")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "sidemove"
 playback_process_mode = 0
+playback_speed = 0.5
 anims/sidemove = SubResource( 3 )
